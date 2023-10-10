@@ -9,3 +9,18 @@ plugins:
   - "@semantic-release/commit-analyzer":
       preset: conventionalcommits
   - "@semantic-release/release-notes-generator"
+  - semantic-release-replace-plugin:
+    replacements:
+      files: src/**/devcontainer-template.json
+      from: __VERSION__
+      to: ${nextRelease.version}
+      countMatches: true
+      results:
+        - file: src/git-devcontainer/devcontainer-template.json
+          hasChanged: true
+          numMatches: 1
+          numReplacements: 1
+  - "@semantic-release/git":
+      assets:
+        - src/**/devcontainer-template.json
+      message: "chore: ${nextRelease.version} [skip ci]"
