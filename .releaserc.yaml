@@ -13,8 +13,8 @@ plugins:
     - replacements:
         - files:
             - src/**/devcontainer-template.json
-          from: __VERSION__
-          to: ${nextRelease.version}
+          from: '"version": ".*"'
+          to: '"version": "${nextRelease.version}"'
           countMatches: true
           results:
             - file: src/git-devcontainer/devcontainer-template.json
