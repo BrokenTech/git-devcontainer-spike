@@ -45,5 +45,12 @@ jobs:
       - uses: actions/setup-node@v3.8.0
         with:
           node-version: 20
+      - script: |
+          git config --global commit.gpgsign true
       - name: Release
-        run: npx --package=@semantic-release/git --package=semantic-release-replace-plugin --yes semantic-release
+        run: >
+          npx \
+            --package=@semantic-release/git \
+            --package=semantic-release-replace-plugin \
+            --yes \
+            semantic-release
