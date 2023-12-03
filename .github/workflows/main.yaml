@@ -22,6 +22,20 @@ jobs:
         with:
           template: git-devcontainer
 
+  autogen-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Publish Templates"
+        uses: devcontainers/action@v1
+        with:
+          publish-templates: "false"
+          base-path-to-templates: "./src"
+          generate-docs: "true"
+          validate-only: "true"
+          disable-repo-tagging: "true"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   vale:
     name: Run Vale
     runs-on: ubuntu-latest

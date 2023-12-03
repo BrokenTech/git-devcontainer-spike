@@ -24,4 +24,5 @@ plugins:
   - - "@semantic-release/git"
     - assets:
         - src/**/devcontainer-template.json
+        - "*/**/README.md"
       message: "chore: ${nextRelease.version} [skip ci]"
