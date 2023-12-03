@@ -25,6 +25,7 @@ jobs:
   autogen-docs:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: "Publish Templates"
         uses: devcontainers/action@v1
         with:
