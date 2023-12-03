@@ -32,7 +32,6 @@ jobs:
           publish-templates: "false"
           base-path-to-templates: "./src"
           generate-docs: "true"
-          validate-only: "true"
           disable-repo-tagging: "true"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
